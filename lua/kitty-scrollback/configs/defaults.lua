@@ -55,7 +55,7 @@
 ---@field kitty_get_text KsbKittyGetText|nil options passed to get-text when reading scrollback buffer, see `kitty @ get-text --help`
 ---@field checkhealth boolean|nil if true execute :checkhealth kitty-scrollback and skip setup
 ---@field visual_selection_highlight_mode string | 'darken' | 'kitty' | 'nvim' | 'reverse' | nil
-local default_opts = {
+local japh_opts = {
   callbacks = nil,
   keymaps_enabled = true,
   restore_options = false,
@@ -68,7 +68,7 @@ local default_opts = {
     icons = {
       kitty = '󰄛',
       heart = '󰣐', -- variants 󰣐 |  |  | ♥ |  | 󱢠 | 
-      nvim = '', -- variants  |  |  | 
+      nvim = '', -- variants  |  |  | 
     },
   },
   paste_window = {
@@ -79,7 +79,8 @@ local default_opts = {
     winopts_overrides = nil,
     footer_winopts_overrides = nil,
     yank_register = '',
-    yank_register_enabled = true,
+    -- disable the paste window
+    yank_register_enabled = false,
   },
   kitty_get_text = {
     ansi = true,
@@ -87,7 +88,8 @@ local default_opts = {
     clear_selection = true,
   },
   checkhealth = false,
-  visual_selection_highlight_mode = 'darken',
+  visual_selection_highlight_mode = 'reverse',
+  restore_options = true,
 }
 
-return default_opts
+return japh_opts
